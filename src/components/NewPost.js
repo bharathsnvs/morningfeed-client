@@ -6,6 +6,10 @@ import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 
 import { useForm } from "../hooks/formHooks";
+import cloneDeep from 'clone-deep';
+
+//Queries
+import { FETCH_POSTS_QUERY } from "../graphql/graphql";
 
 function PostCard() {
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
@@ -14,10 +18,15 @@ function PostCard() {
 
   const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
     variables: values,
-    update(_, result) {
-      console.log(result);
-      values.body = "";
+    update(proxy, result) {
+      const data = cloneDeep(proxy.readQuery({
+        query: FETCH_POSTS_QUERY
+      }));
+      data.getPosts = [result.data.createPost, ...data.getPosts];
+      proxy.writeQuery({ query: FETCH_POSTS_QUERY, data });
+      values.body = '';
     },
+    
   });
 
   function createPostCallback() {
@@ -74,5 +83,6 @@ const CREATE_POST_MUTATION = gql`
     }
   }
 `;
+
 
 export default PostCard;

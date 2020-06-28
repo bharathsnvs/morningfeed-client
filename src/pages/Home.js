@@ -8,6 +8,9 @@ import NewPost from "../components/NewPost.js";
 //Context
 import { AuthContext } from "../context/auth";
 
+//Queries
+import { FETCH_POSTS_QUERY } from "../graphql/graphql";
+
 function Home() {
   const { user } = useContext(AuthContext);
   console.log(user)
@@ -40,26 +43,6 @@ function Home() {
   );
 }
 
-const FETCH_POSTS_QUERY = gql`
-  {
-    getPosts {
-      id
-      body
-      createdAt
-      username
-      likeCount
-      likes {
-        username
-      }
-      commentCount
-      comments {
-        id
-        username
-        createdAt
-        body
-      }
-    }
-  }
-`;
+
 
 export default Home;
