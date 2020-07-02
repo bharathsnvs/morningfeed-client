@@ -16,7 +16,7 @@ function PostCard() {
     body: "",
   });
 
-  const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
+  const [createPost] = useMutation(CREATE_POST_MUTATION, {
     variables: values,
     update(proxy, result) {
       const data = cloneDeep(proxy.readQuery({
