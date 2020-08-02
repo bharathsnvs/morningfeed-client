@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { Grid } from "semantic-ui-react";
+import { Grid, Button } from "semantic-ui-react";
 
 import PostCard from "../components/PostCard.js";
 import NewPost from "../components/NewPost.js";
@@ -12,12 +12,15 @@ import { FETCH_POSTS_QUERY } from "../graphql/graphql";
 
 function Home() {
   const { user } = useContext(AuthContext);
-  console.log(user)
+  console.log(user);
 
   const { loading, data } = useQuery(FETCH_POSTS_QUERY);
 
   return (
     <Grid columns={3}>
+      <Grid.Row className="page-title">
+        <Button id="fonts" style={{backgroundColor: '#fff', fontWeight: 'bolder'}}>Recent</Button>
+      </Grid.Row>
       <Grid.Row className="page-title">
         <h1 id="fonts">Recent Posts</h1>
       </Grid.Row>
@@ -41,7 +44,5 @@ function Home() {
     </Grid>
   );
 }
-
-
 
 export default Home;
