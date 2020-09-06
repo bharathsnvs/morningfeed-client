@@ -6,39 +6,44 @@ import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
 // Context Provider
-import { AuthProvider } from "./context/auth";
+// import { AuthProvider } from "./context/auth";
 
-import AuthRoute from './util/AuthRoute'
-
-import MenuBar from "./components/MenuBar";
 import Home from "./pages/Home";
-import Class from "./pages/Class";
-import ClassRoom from "./pages/ClassRoom";
-import Login from "./pages/Login";
-import Hooks from "./pages/Hooks";
-import Register from "./pages/Register";
-import Upload from "./pages/Upload";
-import PostSubscription from './pages/PostSubscription'
-
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Container style={{ width: "70%" }}>
-          <MenuBar />
+    <Router>
+      <Container style={styles.pagecontainer}>
+        <div style={styles.pageBackground}></div>
+        <Container style={styles.container}>
           <Route exact path="/" component={Home} />
-          <Route exact path="/note" component={Class} />
-          <Route exact path="/hooks" component={Hooks} />
-          <Route exact path="/room/:roomId" component={ClassRoom} />
-          <Route exact path="/updates" component={PostSubscription} />
-          <Route exact path="/upload" component={Upload} />
-          <AuthRoute exact path="/login" component={Login} />
-          <AuthRoute exact path="/register" component={Register} />
         </Container>
-      </Router>
-    </AuthProvider>
+      </Container>
+    </Router>
   );
 }
+
+const styles = {
+  pagecontainer: {
+    width: "100%",
+    backgroundColor: "#fff"
+  },
+  container: {
+    width: "70%",
+    backgroundColor: "#fff",
+    marginTop: 10,
+    borderRadius: 2
+  },
+  pageBackground: {
+    width: "100%",
+    height: "260px",
+    borderRadius: 4,
+    backgroundPosition: "center",
+    backgroundImage:
+      "url(" + "https://source.unsplash.com/collection/11413845/" + ")",
+    
+    marginBottom: 0,
+  },
+};
 
 export default App;

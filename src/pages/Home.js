@@ -1,48 +1,89 @@
-import React, { useContext } from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { Grid, Button } from "semantic-ui-react";
+import React, { useState, useEffect } from "react";
+import { Modal, Header, Input, Icon } from "semantic-ui-react";
+import useEvent from "../hooks/useEvent";
 
-import PostCard from "../components/PostCard.js";
-import NewPost from "../components/NewPost.js";
-//Context
-import { AuthContext } from "../context/auth";
-
-//Queries
-import { FETCH_POSTS_QUERY } from "../graphql/graphql";
+import PageContent from "../components/PageContent";
 
 function Home() {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const [password, setPassword] = useState("");
+  const [open, setOpen] = useState(true);
 
-  const { loading, data } = useQuery(FETCH_POSTS_QUERY);
+  function keydownHandler(e) {
+    if (e.keyCode === 13) {
+      validateInput(password);
+    }
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEvent("keydown", keydownHandler);
+
+  function validateInput(input) {
+    if (input === "admin") {
+      setOpen(false);
+    } else {
+      console.log("incorrect");
+      setPassword("");
+    }
+  }
 
   return (
-    <Grid columns={3}>
-      <Grid.Row className="page-title">
-        <Button id="fonts" style={{backgroundColor: '#fff', fontWeight: 'bolder'}}>Recent</Button>
-      </Grid.Row>
-      <Grid.Row className="page-title">
-        <h1 id="fonts">Recent Posts</h1>
-      </Grid.Row>
-      <Grid.Row>
-        {user && (
-          <Grid.Column>
-            <NewPost user={user} />
-          </Grid.Column>
-        )}
-        {loading ? (
-          <h1>Loading posts...</h1>
-        ) : (
-          data.getPosts &&
-          data.getPosts.map((post) => (
-            <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
-              <PostCard post={post} />
-            </Grid.Column>
-          ))
-        )}
-      </Grid.Row>
-    </Grid>
+    <div>
+      <Modal
+        onClose={() => setOpen(true)}
+        onOpen={() => setOpen(true)}
+        open={open}
+        closeOnDimmerClick={false}
+        style={styles.modal}
+      >
+        <Modal.Header style={styles.modal} id="fonts">
+          Enter pass
+        </Modal.Header>
+        <Modal.Content style={styles.modal}>
+          <Modal.Description>
+            <Header style={styles.modal} id="fonts">
+              Confirm user
+            </Header>
+            <Input
+              icon={
+                <Icon
+                  onClick={() => validateInput(password)}
+                  name="chevron right"
+                  fitted
+                  link
+                  size="small"
+                />
+              }
+              type="password"
+              style={styles.input}
+              transparent
+              placeholder="Enter..."
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <p id="fonts" style={{ marginTop: 50 }}>
+              Contact usalresearchteam@gmail.com for access
+            </p>
+          </Modal.Description>
+        </Modal.Content>
+      </Modal>
+
+      <PageContent />
+    </div>
   );
 }
 
 export default Home;
+
+const styles = {
+  modal: {
+    backgroundColor: "#0d1720",
+    color: "snow",
+  },
+  input: {
+    width: 200,
+    color: "snow",
+  },
+};
