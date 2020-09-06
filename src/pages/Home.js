@@ -21,7 +21,7 @@ function Home() {
   useEvent("keydown", keydownHandler);
 
   function validateInput(input) {
-    if (input === "admin") {
+    if (input === "uptodate") {
       setOpen(false);
     } else {
       console.log("incorrect");
