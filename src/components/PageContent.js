@@ -17,7 +17,7 @@ function PageContent() {
   const [view, setView] = useState("news");
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:5000/");
+      const result = await axios("https://informationfeed.herokuapp.com/");
       setFeed(JSON.parse(JSON.stringify(result.data)));
     };
     fetchData();
