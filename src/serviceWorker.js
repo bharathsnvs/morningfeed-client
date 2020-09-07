@@ -36,7 +36,7 @@ export function register(config) {
     });
 
     window.addEventListener("activate", (event) => {
-      event.waitUntil(self.clients.claim());
+      event.waitUntil(Promise.clients.claim());
     });
 
     window.addEventListener("fetch", (event) => {
