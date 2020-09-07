@@ -10,7 +10,7 @@ export default function AddToHomeScreen(props) {
     cancelMsg: "Not now",
     installMsg: "Install",
     guidanceCancelMsg: "Close",
-    src: "images/logos/default/StoreLogo.png",
+    src: "../../public/fractal1.jpg",
   };
 
   const DEFAULT_SESSION = {
