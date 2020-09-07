@@ -17,7 +17,7 @@ function EventsContainer({ worldEvents }) {
     return result;
   }
   return (
-    <Card.Group style={styles.eventsBox} centered itemsPerRow={3}>
+    <Card.Group style={styles.eventsBox} centered itemsPerRow={3} stackable>
       {selectedEvents &&
         selectedEvents.map((item) => (
           <Popup
