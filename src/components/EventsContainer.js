@@ -25,7 +25,7 @@ function EventsContainer({ worldEvents }) {
             inverted
             trigger={
               <Card href={item.link} target={"_blank"}>
-                <Card.Description id="fonts">content-type</Card.Description>
+                <Card.Description id="fonts"></Card.Description>
                 <Card.Content>
                   <Card.Header id="fonts">{reduceText(item.title)}</Card.Header>
 
