@@ -36,6 +36,7 @@ function PageContent() {
   const Reddit = [feed[3], feed[4], feed[5]];
   const Artwork = [feed[11], feed[5]];
   const Misc = [feed[1], feed[4]]
+  const worldEvents = feed[3]
 
   const fullView = () => {
     return (
@@ -93,7 +94,7 @@ function PageContent() {
           {view === "all" ? (
             fullView()
           ) : view === "news" ? (
-            <WorldNews stream={ReutersNews} />
+            <WorldNews stream={ReutersNews} worldEvents={worldEvents}/>
           ) : view === "finance" ? (
             <FinNews stream={Fin} />
           ) : view === "tech" ? (

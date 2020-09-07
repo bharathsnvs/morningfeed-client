@@ -64,3 +64,7 @@ body #fonts {
 .ui.input input {
   color: snow!important;
 }
+
+.ui.card, .ui.cards .card {
+  box-shadow: none!important;
+}

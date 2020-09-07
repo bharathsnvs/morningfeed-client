@@ -1,7 +1,9 @@
 import React from "react";
-import { Container, Label, List } from "semantic-ui-react";
+import { Container, Label, List, Loader } from "semantic-ui-react";
 
-function WorldNews({ stream }) {
+import EventsContainer from "./EventsContainer";
+
+function WorldNews({ stream, worldEvents }) {
   const indiaSpecific =
     stream && stream.contents.filter((i) => i.location === "top-news");
   const worldSpecific =
@@ -10,6 +12,8 @@ function WorldNews({ stream }) {
     <div style={{ marginLeft: 15 }}>
       {stream ? (
         <Container id="fonts" style={styles.informationBox}>
+          <EventsContainer worldEvents={worldEvents} />
+
           <div style={styles.coloredDiv}>
             <div id="fonts" style={styles.subHeader}>
               India
