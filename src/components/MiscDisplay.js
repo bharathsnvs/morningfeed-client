@@ -20,9 +20,7 @@ function MiscDisplay({ stream }) {
       {stream ? (
         <Container id="fonts" style={styles.informationBox}>
           <div style={styles.coloredDiv}>
-            <div id="fonts" style={styles.subHeader}>
-              India
-            </div>
+            <br  />
             <List divided relaxed ordered>
               {selected &&
                 selected.map((item) => (
