@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
-import {isMobile} from 'react-device-detect';
+import { isMobile, isBrowser } from "react-device-detect";
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
@@ -12,12 +12,17 @@ import "./App.css";
 import Home from "./pages/Home";
 
 function App() {
-  
   return (
     <Router>
       <Container style={styles.pagecontainer}>
         <div style={styles.pageBackground}></div>
-        <Container style={styles.container}>
+        <Container
+          style={{
+            ...styles.container,
+            width: isMobile ? "93%" : isBrowser ? "70%" : "80%",
+            backgroundColor: isMobile ? "lightgray" : "#fff",
+          }}
+        >
           <Route exact path="/" component={Home} />
         </Container>
       </Container>
@@ -28,13 +33,12 @@ function App() {
 const styles = {
   pagecontainer: {
     width: "100%",
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   container: {
-    width: isMobile ? "87%" : "70%",
     backgroundColor: "#fff",
     marginTop: 10,
-    borderRadius: 2
+    borderRadius: 2,
   },
   pageBackground: {
     width: "100%",
@@ -43,7 +47,7 @@ const styles = {
     backgroundPosition: "center",
     backgroundImage:
       "url(" + "https://source.unsplash.com/collection/11413845/" + ")",
-    
+
     marginBottom: 0,
   },
 };
