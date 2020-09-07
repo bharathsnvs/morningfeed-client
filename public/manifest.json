@@ -1,6 +1,7 @@
 {
   "short_name": "Morningfeed",
-  "name": "Collections from across the web",
+  "name": "Morningfeed",
+  "description": "Collections from across the web",
   "icons": [
     {
       "src": "fractal1.png",
@@ -11,5 +12,10 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "serviceworker": {
+    "src": "../serviceWorker.js",
+    "scope": "/"
+  },
+  "orientation": "any"
 }
