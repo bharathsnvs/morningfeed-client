@@ -1,5 +1,7 @@
 import React from "react";
 import { Container, Label, List } from "semantic-ui-react";
+import { isMobile } from "react-device-detect";
+
 
 import DisplayFin from "./DisplayFin";
 
@@ -8,7 +10,7 @@ function FinNews({ stream }) {
   const bstandard = stream && stream[0].contents;
   const redditFin = stream && stream[3].contents.filter((i) => i.category === "finance");
   return (
-    <div style={{ marginLeft: 15 }}>
+    <div style={{ marginLeft: isMobile ? 0 : 15  }}>
       <DisplayFin toDisplay={[stream[1], stream[2]]} />
       {stream ? (
         <Container id="fonts" style={styles.informationBox}>
@@ -86,6 +88,7 @@ const styles = {
   informationBox: {
     width: "100%",
     height: "auto",
+    marginLeft: isMobile ? 0 : 15 
   },
   contents: {
     marginBottom: 6,

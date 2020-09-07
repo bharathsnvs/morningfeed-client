@@ -1,6 +1,7 @@
 import React from "react";
 import { Divider, Image, Item } from "semantic-ui-react";
 
+
 function ArtDisplay({ stream }) {
   const allImages = stream && [...stream[0].contents, ...stream[1].contents];
   console.log("ART to show", allImages);

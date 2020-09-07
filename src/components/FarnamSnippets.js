@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Container, Icon, List, Accordion } from "semantic-ui-react";
+import { isMobile } from "react-device-detect";
+
 
 function FarnamSnippets({ stream }) {
   const [activeIndex, setActiveIndex] = useState(5);
@@ -12,7 +14,7 @@ function FarnamSnippets({ stream }) {
     console.log("Active Index", activeIndex);
   };
   return (
-    <div style={{ marginLeft: 15 }}>
+    <div style={{ marginLeft: isMobile ? 0 : 15 }}>
       {stream ? (
         <Container id="fonts" style={styles.informationBox}>
           <br />
@@ -228,6 +230,7 @@ const styles = {
     marginTop: 0,
     width: "100%",
     height: "auto",
+    marginLeft: isMobile ? 0 : 15
   },
   contents: {
     marginBottom: 6,

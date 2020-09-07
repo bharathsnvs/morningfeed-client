@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Statistic, Grid, List, Flag } from "semantic-ui-react";
+import { Container, Statistic, Grid } from "semantic-ui-react";
 
 function DisplayFin({ toDisplay }) {
   console.log("To display", toDisplay && toDisplay[0].contents[0].close);

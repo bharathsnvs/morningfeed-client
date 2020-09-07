@@ -23,6 +23,7 @@ function WorldNews({ stream, worldEvents }) {
               {indiaSpecific &&
                 indiaSpecific.slice(0, -2).map((item) => (
                   <List.Item
+                    
                     style={styles.contentLabel}
                     id="fonts"
                     style={styles.contents}
@@ -94,7 +95,7 @@ const styles = {
     marginTop: 0,
     width: "100%",
     height: "auto",
-    marginLeft: isMobile ? 0 : 15
+    marginLeft: isMobile ? 0 : 15,
   },
   contents: {
     marginBottom: 6,

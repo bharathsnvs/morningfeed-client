@@ -1,11 +1,13 @@
 import React from "react";
 import { Container, Label, List } from "semantic-ui-react";
+import { isMobile } from "react-device-detect";
+
 
 function TechNews({ stream }) {
   console.log("TECH", stream);
   return (
     <div>
-      <div style={{ marginLeft: 15 }}>
+      <div style={{  marginLeft: isMobile ? 0 : 15 }}>
         {stream ? (
           <Container id="fonts" style={styles.informationBox}>
             <div style={styles.coloredDiv}>
@@ -86,6 +88,7 @@ const styles = {
     marginTop: 0,
     width: "100%",
     height: "auto",
+    marginLeft: isMobile ? 0 : 15,
   },
   contents: {
     marginBottom: 6,
