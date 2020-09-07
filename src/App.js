@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
+import {isMobile} from 'react-device-detect';
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
@@ -11,6 +12,7 @@ import "./App.css";
 import Home from "./pages/Home";
 
 function App() {
+  
   return (
     <Router>
       <Container style={styles.pagecontainer}>
@@ -29,7 +31,7 @@ const styles = {
     backgroundColor: "#fff"
   },
   container: {
-    width: "70%",
+    width: isMobile ? "87%" : "70%",
     backgroundColor: "#fff",
     marginTop: 10,
     borderRadius: 2
