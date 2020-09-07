@@ -48,7 +48,6 @@
   "name": "Morningfeed",
   "short_name": "Morningfeed",
   "lang": "de-DE",
-  "dir": "auto",
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "description": "Collections from across the web."
