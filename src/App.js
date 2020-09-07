@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
-import { isMobile, isBrowser } from "react-device-detect";
+import { isMobile } from "react-device-detect";
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
@@ -19,8 +19,8 @@ function App() {
         <Container
           style={{
             ...styles.container,
-            width: isMobile ? "93%" : isBrowser ? "70%" : "80%",
-            backgroundColor: isMobile ? "lightgray" : "#fff",
+            width: isMobile ? "93%" : "80%",
+            backgroundColor : "#fff",
           }}
         >
           <Route exact path="/" component={Home} />

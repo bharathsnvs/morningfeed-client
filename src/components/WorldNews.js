@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Label, List, Loader } from "semantic-ui-react";
+import { isMobile } from "react-device-detect";
 
 import EventsContainer from "./EventsContainer";
 
@@ -9,7 +10,7 @@ function WorldNews({ stream, worldEvents }) {
   const worldSpecific =
     stream && stream.contents.filter((i) => i.location === "world");
   return (
-    <div style={{ marginLeft: 15 }}>
+    <div style={{ marginLeft: isMobile ? 0 : 15 }}>
       {stream ? (
         <Container id="fonts" style={styles.informationBox}>
           <EventsContainer worldEvents={worldEvents} />
@@ -93,6 +94,7 @@ const styles = {
     marginTop: 0,
     width: "100%",
     height: "auto",
+    marginLeft: isMobile ? 0 : 15
   },
   contents: {
     marginBottom: 6,
