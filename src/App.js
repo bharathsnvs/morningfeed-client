@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 import { isMobile } from "react-device-detect";
+import AddToHomeScreen from "add-to-homescreen-react";
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
@@ -15,12 +16,14 @@ function App() {
   return (
     <Router>
       <Container style={styles.pagecontainer}>
+        <AddToHomeScreen startDelay={3} lifespan={30}/>
+
         <div style={styles.pageBackground}></div>
         <Container
           style={{
             ...styles.container,
             width: isMobile ? "93%" : "80%",
-            backgroundColor : "#fff",
+            backgroundColor: "#fff",
           }}
         >
           <Route exact path="/" component={Home} />
