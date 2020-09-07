@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 import { isMobile } from "react-device-detect";
-import AddToHomeScreen from "./helper/AddToHomeScreen";
+import AddToHomeScreen from "./helper/AddToHomeScreen.js";
 
 
 import "semantic-ui-css/semantic.min.css";
