@@ -41,7 +41,7 @@ function MiscDisplay({ stream }) {
                         {item.upvoteRatio
                           ? item.title
                               .split(" ")
-                              .slice(2, -1)
+                              .slice(2)
                               .reduce(
                                 (acc, x) =>
                                   acc === null ? [x] : [acc, " ", x],
@@ -49,9 +49,9 @@ function MiscDisplay({ stream }) {
                               )
                           : item.title}
                       </p>
-                      {item.upvoteRatio
-                        ? console.log(item.title.split(" ").slice(2, -1))
-                        : null}
+                      {/* {item.upvoteRatio
+                        ? console.log(item.title.split(" ").slice(2))
+                        : null} */}
                     </List.Header>
                     <List.Description>
                       {item.tags ? (

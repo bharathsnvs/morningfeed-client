@@ -6,7 +6,7 @@ import PageContent from "../components/PageContent";
 
 function Home() {
   const [password, setPassword] = useState("");
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   function keydownHandler(e) {
     if (e.keyCode === 13) {
