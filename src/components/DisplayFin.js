@@ -9,7 +9,7 @@ function DisplayFin({ toDisplay }) {
       <div id="fonts" style={styles.subHeader}>
         Trends in Market Cap (India)
       </div>
-      <Grid style={{ marginTop: 40, marginBottom: 40 }}>
+      <Grid style={{ marginTop: 40, marginBottom: 40 }} stackable>
         <Grid.Row columns={5}>
           {toDisplay[1].contents.slice(0, 5).map((item) => (
             <Grid.Column>
