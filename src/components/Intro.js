@@ -8,36 +8,49 @@ function Intro({ changeView, view }) {
         <div style={{ display: "inline-block", marginBottom: 10 }}>
           #{view}{" "}
           {view === "farnam" ? (
-            <span style={{ color: "gray", display: "inline-block", fontSize: 22 }}>
+            <span
+              style={{ color: "gray", display: "inline-block", fontSize: 22 }}
+            >
               {" "}
               - decision-making, culture, and more
             </span>
           ) : view === "finance" ? (
-            <span style={{ color: "gray", display: "inline-block", fontSize: 22 }}>
+            <span
+              style={{ color: "gray", display: "inline-block", fontSize: 22 }}
+            >
               {" "}
               - market news and movements
             </span>
           ) : view === "news" ? (
-            <span style={{ color: "gray", display: "inline-block", fontSize: 22 }}>
+            <span
+              style={{ color: "gray", display: "inline-block", fontSize: 22 }}
+            >
               {" "}
               - snapshots of the world
             </span>
           ) : view === "art" ? (
-            <span style={{ color: "gray", display: "inline-block", fontSize: 22 }}>
+            <span
+              style={{ color: "gray", display: "inline-block", fontSize: 22 }}
+            >
               {" "}
               - glimpses of everything good there is
             </span>
           ) : view === "tech" ? (
-            <span style={{ color: "gray", display: "inline-block", fontSize: 22 }}>
+            <span
+              style={{ color: "gray", display: "inline-block", fontSize: 22 }}
+            >
               {" "}
               - consequences of all curiosity
             </span>
           ) : view === "misc" ? (
-            <span style={{ color: "gray", display: "inline-block", fontSize: 22 }}>
+            <span
+              style={{ color: "gray", display: "inline-block", fontSize: 22 }}
+            >
               {" "}
               - the best of rest of the web
             </span>
           ) : null}
+          
         </div>
       </div>
       <Label

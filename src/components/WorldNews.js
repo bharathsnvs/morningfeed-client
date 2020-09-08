@@ -11,19 +11,32 @@ function WorldNews({ stream, worldEvents }) {
     stream && stream.contents.filter((i) => i.location === "world");
   return (
     <div style={{ marginLeft: isMobile ? 0 : 15 }}>
-      {stream ? (
+      {worldEvents && stream ? (
         <Container id="fonts" style={styles.informationBox}>
           <EventsContainer worldEvents={worldEvents} />
 
           <div style={styles.coloredDiv}>
             <div id="fonts" style={styles.subHeader}>
               India
+              <span
+                // onClick={() => changeView("misc")}
+
+                style={{
+                  marginBottom: 0,
+
+                  marginTop: 5,
+                  float: "right",
+                  color: "gray",
+                  fontSize: 22,
+                }}
+              >
+                from: reuters, reddit
+              </span>
             </div>
             <List divided relaxed ordered>
               {indiaSpecific &&
                 indiaSpecific.slice(0, -2).map((item) => (
                   <List.Item
-                    
                     style={styles.contentLabel}
                     id="fonts"
                     style={styles.contents}

@@ -15,7 +15,7 @@ function TechNews({ stream }) {
                 Reuters Tech
               </div>
               <List divided relaxed ordered>
-                {stream &&
+                {stream ?
                   stream[1].contents.map((item) => (
                     <List.Item
                       style={styles.contentLabel}
@@ -34,7 +34,7 @@ function TechNews({ stream }) {
                       </List.Header>
                       <List.Description>{item.excerpt}</List.Description>
                     </List.Item>
-                  ))}
+                  )) : null}
               </List>
               <br />
               <br />

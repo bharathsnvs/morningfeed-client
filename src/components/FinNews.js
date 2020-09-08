@@ -17,6 +17,20 @@ function FinNews({ stream }) {
           <div style={styles.coloredDiv}>
             <div id="fonts" style={styles.subHeader}>
               World Finance
+              <span
+                // onClick={() => changeView("misc")}
+
+                style={{
+                  marginBottom: 0,
+
+                  marginTop: 5,
+                  float: "right",
+                  color: "gray",
+                  fontSize: 22,
+                }}
+              >
+                from: business standard, ET, FT, reddit
+              </span>
             </div>
             <List divided relaxed ordered>
               {redditFin &&
