@@ -20,6 +20,9 @@ function EventsContainer({ worldEvents }) {
   }
   return selectedEvents ? (
     <div>
+      <div id="fonts" style={styles.subHeader}>
+        Highlights
+      </div>
       <Card.Group style={styles.eventsBox} centered itemsPerRow={3} stackable>
         {selectedEvents &&
           selectedEvents.map((item) => (
@@ -58,5 +61,11 @@ const styles = {
     marginBottom: 20,
     // borderStyle: 'none',
     borderColor: "blue",
+  },
+  subHeader: {
+    fontWeight: 500,
+    fontSize: 30,
+    marginBottom: 20,
+    marginTop: 20,
   },
 };
