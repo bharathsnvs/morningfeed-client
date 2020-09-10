@@ -22,7 +22,7 @@ function App() {
         <Container
           style={{
             ...styles.container,
-            width: isMobile ? "100%" : "70%",
+            width: isMobile ? "90%" : "70%",
             backgroundColor: "#fff",
           }}
         >
