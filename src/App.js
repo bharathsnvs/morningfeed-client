@@ -4,7 +4,6 @@ import { Container } from "semantic-ui-react";
 import { isMobile } from "react-device-detect";
 import AddToHomeScreen from "./helper/AddToHomeScreen.js";
 
-
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
@@ -17,13 +16,13 @@ function App() {
   return (
     <Router>
       <Container style={styles.pagecontainer}>
-        <AddToHomeScreen/>
+        <AddToHomeScreen />
 
         <div style={styles.pageBackground}></div>
         <Container
           style={{
             ...styles.container,
-            width: isMobile ? "93%" : "80%",
+            width: isMobile ? "100%" : "70%",
             backgroundColor: "#fff",
           }}
         >

@@ -5,6 +5,7 @@ import { isMobile } from "react-device-detect";
 import EventsContainer from "./EventsContainer";
 
 function WorldNews({ stream, worldEvents }) {
+  
   const indiaSpecific =
     stream && stream.contents.filter((i) => i.location === "top-news");
   const worldSpecific =

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Grid } from "semantic-ui-react";
+import { Grid, Loader } from "semantic-ui-react";
 import axios from "axios";
+import { isMobile } from "react-device-detect";
+
 
 //Components
 import Intro from "./Intro";
@@ -10,18 +12,23 @@ import TechNews from "./TechNews";
 import HubskiNews from "./HubskiNews";
 import FarnamSnippets from "./FarnamSnippets";
 import ArtDisplay from "./ArtDisplay";
-import MiscDisplay from './MiscDisplay'
+import MiscDisplay from "./MiscDisplay";
+import EventsPlaceholder from "./EventsPlaceholder";
 
 function PageContent() {
   const [feed, setFeed] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [view, setView] = useState("news");
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios("https://informationfeed.herokuapp.com/");
-      setFeed(JSON.parse(JSON.stringify(result.data)));
-    };
     fetchData();
   }, []);
+  const fetchData = async () => {
+    setLoading(true);
+    const result = await axios("https://informationfeed.herokuapp.com/");
+    setFeed(JSON.parse(JSON.stringify(result.data)));
+    feed && setLoading(false);
+    console.log('Fetching')
+  };
   console.log(feed);
 
   function changeView(type) {
@@ -35,8 +42,8 @@ function PageContent() {
   const Farnam = feed[10];
   const Reddit = [feed[3], feed[4], feed[5]];
   const Artwork = [feed[11], feed[5]];
-  const Misc = [feed[1], feed[4]]
-  const worldEvents = feed[3]
+  const Misc = [feed[1], feed[4]];
+  const worldEvents = feed[3];
 
   const fullView = () => {
     return (
@@ -88,24 +95,28 @@ function PageContent() {
         <Grid.Column>
           <Grid.Row style={styles.firstRow}>
             <div style={styles.contentContainer}>
-              <Intro changeView={changeView} view={view} />
+              <Intro changeView={changeView} view={view} fetchData={fetchData} loading={loading}/>
             </div>
           </Grid.Row>
-          {view === "all" ? (
-            fullView()
-          ) : view === "news" ? (
-            <WorldNews stream={ReutersNews} worldEvents={worldEvents}/>
-          ) : view === "finance" ? (
-            <FinNews stream={Fin} />
-          ) : view === "tech" ? (
-            <TechNews stream={Tech} />
-          ) : view === "art" ? (
-            <ArtDisplay stream={Artwork} />
-          ) : view === "farnam" ? (
-            <FarnamSnippets stream={Farnam} />
-          ) : view === "misc" ? (
-            <MiscDisplay stream={Misc} />
-          ) : null}
+          {!loading ? (
+            view === "all" ? (
+              fullView()
+            ) : view === "news" ? (
+              <WorldNews stream={ReutersNews} worldEvents={worldEvents} />
+            ) : view === "finance" ? (
+              <FinNews stream={Fin} />
+            ) : view === "tech" ? (
+              <TechNews stream={Tech} />
+            ) : view === "art" ? (
+              <ArtDisplay stream={Artwork} />
+            ) : view === "farnam" ? (
+              <FarnamSnippets stream={Farnam} />
+            ) : view === "misc" ? (
+              <MiscDisplay stream={Misc} />
+            ) : null
+          ) : (
+            <EventsPlaceholder />
+          )}
         </Grid.Column>
       </Grid>
     </div>
@@ -116,7 +127,7 @@ const styles = {
   container: {
     // borderStyle: "solid",
     // borderColor: "lightgray",
-    margin: "auto",
+    margin: isMobile ? 0 : "auto",
     borderRadius: 5,
   },
   firstRow: {

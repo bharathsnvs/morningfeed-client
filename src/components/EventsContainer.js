@@ -2,12 +2,13 @@ import React from "react";
 import { Card, Popup, Loader } from "semantic-ui-react";
 
 function EventsContainer({ worldEvents }) {
+  
   const eventsToShow = worldEvents && worldEvents.contents;
   const shuffled = eventsToShow
     .filter((i) => i.category === "worldevents")
     .sort(() => 0.5 - Math.random());
   const selectedEvents = shuffled.slice(0, 9);
-  console.log(selectedEvents);
+
 
   function reduceText(text) {
     var result = text;
@@ -19,7 +20,7 @@ function EventsContainer({ worldEvents }) {
     return result;
   }
   return selectedEvents ? (
-    <div>
+    <div >
       <div id="fonts" style={styles.subHeader}>
         Highlights
       </div>

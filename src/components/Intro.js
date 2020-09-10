@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Label, List } from "semantic-ui-react";
+import { Label, Icon, Loader } from "semantic-ui-react";
 
-function Intro({ changeView, view }) {
+function Intro({ changeView, view, fetchData, loading }) {
   return (
     <div>
       <div id="fonts" style={styles.header}>
@@ -50,7 +50,6 @@ function Intro({ changeView, view }) {
               - the best of rest of the web
             </span>
           ) : null}
-          
         </div>
       </div>
       <Label
@@ -124,6 +123,26 @@ function Intro({ changeView, view }) {
         <img src="https://i.insider.com/5f3fe11189aff80028ab71ff?width=750&format=jpeg&auto=webp" />
         #misc
       </Label>
+      {/* <Label
+        size="large"
+        as="a"
+        id="fonts"
+        onClick={() => fetchData()}
+        style={{ marginBottom: 0, marginTop: 20 }}
+        disabled
+      >
+        {!loading ? (
+          <div>
+            <Icon name="refresh" />
+            refresh
+          </div>
+        ) : (
+          <div>
+            <Icon name="refresh" />
+            refreshing
+          </div>
+        )}
+      </Label> */}
     </div>
   );
 }
