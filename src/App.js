@@ -11,6 +11,7 @@ import "./App.css";
 // import { AuthProvider } from "./context/auth";
 
 import Home from "./pages/Home";
+import Tests from './pages/Tests'
 
 function App() {
   console.log('Mobile ? ', isMobileOnly)
@@ -20,17 +21,17 @@ function App() {
         <AddToHomeScreen />
 
         <div style={styles.pageBackground}></div>
-        <div
+        <Container
           style={{
             ...styles.container,
             width: isMobileOnly ? "97%" : "70%",
-            padding: isMobileOnly ? 0 : null,
-            marginLeft: isMobileOnly ? 0 : null,
+            
             backgroundColor: "#fff",
           }}
         >
           <Route exact path="/" component={Home} />
-        </div>
+          <Route exact path="/tests" component={Tests} />
+        </Container>
       </Container>
     </Router>
   );
