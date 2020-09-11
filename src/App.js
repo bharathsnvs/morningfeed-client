@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
-import { isMobile } from "react-device-detect";
+import { isMobileOnly } from "react-device-detect";
 import AddToHomeScreen from "./helper/AddToHomeScreen.js";
 
 import "semantic-ui-css/semantic.min.css";
@@ -13,7 +13,7 @@ import "./App.css";
 import Home from "./pages/Home";
 
 function App() {
-  console.log('MOBILE ? ', isMobile)
+  console.log('MOBILE ? ', isMobileOnly)
   return (
     <Router>
       <Container style={styles.pagecontainer}>
@@ -23,7 +23,7 @@ function App() {
         <Container
           style={{
             ...styles.container,
-            width: isMobile ? "97%" : "70%",
+            width: isMobileOnly ? "97%" : "70%",
             backgroundColor: "#fff",
           }}
         >
