@@ -13,6 +13,7 @@ import "./App.css";
 import Home from "./pages/Home";
 
 function App() {
+  console.log('MOBILE ? ', isMobile)
   return (
     <Router>
       <Container style={styles.pagecontainer}>
@@ -22,7 +23,7 @@ function App() {
         <Container
           style={{
             ...styles.container,
-            width: isMobile ? "90%" : "70%",
+            width: isMobile ? "97%" : "70%",
             backgroundColor: "#fff",
           }}
         >
