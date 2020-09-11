@@ -30,7 +30,7 @@ function App() {
           }}
         >
           <Route exact path="/" component={Home} />
-          <Route exact path="/tests" component={Tests} />
+          {/* <Route exact path="/tests" component={Tests} /> */}
         </Container>
       </Container>
     </Router>
