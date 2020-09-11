@@ -34,7 +34,7 @@ function FinNews({ stream }) {
             </div>
             <List divided relaxed ordered>
               {redditFin &&
-                redditFin.map((item) => (
+                redditFin.slice(0,10).map((item) => (
                   <List.Item
                     style={styles.contentLabel}
                     id="fonts"
