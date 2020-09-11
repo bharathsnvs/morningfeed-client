@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Loader } from "semantic-ui-react";
 import axios from "axios";
-import { isMobile } from "react-device-detect";
+import { isMobileOnly } from "react-device-detect";
 
 
 //Components
@@ -92,7 +92,7 @@ function PageContent() {
   return (
     <div>
       <Grid style={styles.container}>
-        <Grid.Column>
+        <Grid.Column style={{}}>
           <Grid.Row style={styles.firstRow}>
             <div style={styles.contentContainer}>
               <Intro changeView={changeView} view={view} fetchData={fetchData} loading={loading}/>
@@ -127,7 +127,7 @@ const styles = {
   container: {
     // borderStyle: "solid",
     // borderColor: "lightgray",
-    margin: isMobile ? 0 : "auto",
+    margin: isMobileOnly ? 0 : "auto",
     borderRadius: 5,
   },
   firstRow: {

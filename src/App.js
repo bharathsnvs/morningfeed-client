@@ -13,22 +13,24 @@ import "./App.css";
 import Home from "./pages/Home";
 
 function App() {
-  console.log('MOBILE ? ', isMobileOnly)
+  console.log('Mobile ? ', isMobileOnly)
   return (
     <Router>
       <Container style={styles.pagecontainer}>
         <AddToHomeScreen />
 
         <div style={styles.pageBackground}></div>
-        <Container
+        <div
           style={{
             ...styles.container,
             width: isMobileOnly ? "97%" : "70%",
+            padding: isMobileOnly ? 0 : null,
+            marginLeft: isMobileOnly ? 0 : null,
             backgroundColor: "#fff",
           }}
         >
           <Route exact path="/" component={Home} />
-        </Container>
+        </div>
       </Container>
     </Router>
   );
