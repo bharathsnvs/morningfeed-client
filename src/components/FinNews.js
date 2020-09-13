@@ -2,39 +2,39 @@ import React from "react";
 import { Container, Label, List } from "semantic-ui-react";
 import { isMobile } from "react-device-detect";
 
-
 import DisplayFin from "./DisplayFin";
 
 function FinNews({ stream }) {
   console.log("FINANCE", stream);
   const bstandard = stream && stream[0].contents;
-  const redditFin = stream && stream[3].contents.filter((i) => i.category === "finance");
+  const redditFin =
+    stream && stream[3].contents.filter((i) => i.category === "finance");
   return (
-    <div style={{ marginLeft: isMobile ? 0 : 15  }}>
+    <div style={{ marginLeft: isMobile ? 0 : 15 }}>
       <DisplayFin toDisplay={[stream[1], stream[2]]} />
       {stream ? (
         <Container id="fonts" style={styles.informationBox}>
+          <div id="fonts" style={styles.subHeader}>
+            World Finance
+            <span
+              // onClick={() => changeView("misc")}
+
+              style={{
+                marginBottom: 0,
+
+                marginTop: 5,
+                float: "right",
+                color: "gray",
+                fontSize: 22,
+              }}
+            >
+              from: business standard, ET, FT, reddit
+            </span>
+          </div>
           <div style={styles.coloredDiv}>
-            <div id="fonts" style={styles.subHeader}>
-              World Finance
-              <span
-                // onClick={() => changeView("misc")}
-
-                style={{
-                  marginBottom: 0,
-
-                  marginTop: 5,
-                  float: "right",
-                  color: "gray",
-                  fontSize: 22,
-                }}
-              >
-                from: business standard, ET, FT, reddit
-              </span>
-            </div>
             <List divided relaxed ordered>
               {redditFin &&
-                redditFin.slice(0,10).map((item) => (
+                redditFin.slice(0, 10).map((item) => (
                   <List.Item
                     style={styles.contentLabel}
                     id="fonts"
@@ -54,9 +54,13 @@ function FinNews({ stream }) {
                 ))}
             </List>
             <br />
-            <div id="fonts" style={styles.subHeader}>
-              Business Standard
-            </div>
+          </div>
+          <br />
+
+          <div id="fonts" style={styles.subHeader}>
+            Business Standard
+          </div>
+          <div style={styles.coloredDiv}>
             <List divided relaxed ordered>
               {bstandard &&
                 bstandard.map((item) => (
@@ -102,7 +106,7 @@ const styles = {
   informationBox: {
     width: "100%",
     height: "auto",
-    marginLeft: isMobile ? 0 : 15 
+    marginLeft: isMobile ? 0 : 15,
   },
   contents: {
     marginBottom: 6,

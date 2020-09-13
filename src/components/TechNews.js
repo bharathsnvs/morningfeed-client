@@ -2,45 +2,48 @@ import React from "react";
 import { Container, Label, List } from "semantic-ui-react";
 import { isMobile } from "react-device-detect";
 
-
 function TechNews({ stream }) {
   console.log("TECH", stream);
   return (
     <div>
-      <div style={{  marginLeft: isMobile ? 0 : 15 }}>
+      <div style={{ marginLeft: isMobile ? 0 : 15 }}>
         {stream ? (
           <Container id="fonts" style={styles.informationBox}>
+            <div id="fonts" style={styles.subHeader}>
+              Reuters Tech
+            </div>
             <div style={styles.coloredDiv}>
-              <div id="fonts" style={styles.subHeader}>
-                Reuters Tech
-              </div>
               <List divided relaxed ordered>
-                {stream ?
-                  stream[1].contents.map((item) => (
-                    <List.Item
-                      style={styles.contentLabel}
-                      id="fonts"
-                      style={styles.contents}
-                    >
-                      <List.Header
+                {stream
+                  ? stream[1].contents.map((item) => (
+                      <List.Item
+                        style={styles.contentLabel}
                         id="fonts"
-                        as="a"
-                        href={item.link}
-                        target="_blank"
+                        style={styles.contents}
                       >
-                        <p id="fonts" style={styles.textColor}>
-                          {item.title}
-                        </p>
-                      </List.Header>
-                      <List.Description>{item.excerpt}</List.Description>
-                    </List.Item>
-                  )) : null}
+                        <List.Header
+                          id="fonts"
+                          as="a"
+                          href={item.link}
+                          target="_blank"
+                        >
+                          <p id="fonts" style={styles.textColor}>
+                            {item.title}
+                          </p>
+                        </List.Header>
+                        <List.Description>{item.excerpt}</List.Description>
+                      </List.Item>
+                    ))
+                  : null}
               </List>
               <br />
-              <br />
-              <div id="fonts" style={styles.subHeader}>
-                Hacker News
-              </div>
+            </div>
+            <br />
+
+            <div id="fonts" style={styles.subHeader}>
+              Hacker News
+            </div>
+            <div style={styles.coloredDiv}>
               <List divided relaxed ordered>
                 {stream &&
                   stream[0].contents.map((item) => (

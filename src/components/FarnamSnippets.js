@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Container, Icon, List, Accordion } from "semantic-ui-react";
 import { isMobile } from "react-device-detect";
 
-
 function FarnamSnippets({ stream }) {
   const [activeIndex, setActiveIndex] = useState(5);
 
@@ -31,8 +30,9 @@ function FarnamSnippets({ stream }) {
                   index={0}
                   onClick={handleClick}
                 >
-                  <Icon name="dropdown" />
+                  <Icon name="dropdown" style={{ display: "inline-block" }} />
                   <List.Header
+                    style={{ display: "inline-block" }}
                     id="fonts"
                     as="a"
                     href={stream.contents[0].link}
@@ -78,8 +78,9 @@ function FarnamSnippets({ stream }) {
                   index={1}
                   onClick={handleClick}
                 >
-                  <Icon name="dropdown" />
+                  <Icon name="dropdown" style={{ display: "inline-block" }} />
                   <List.Header
+                    style={{ display: "inline-block" }}
                     id="fonts"
                     as="a"
                     href={stream.contents[1].link}
@@ -125,8 +126,9 @@ function FarnamSnippets({ stream }) {
                   index={2}
                   onClick={handleClick}
                 >
-                  <Icon name="dropdown" />
+                  <Icon name="dropdown" style={{ display: "inline-block" }} />
                   <List.Header
+                    style={{ display: "inline-block" }}
                     id="fonts"
                     as="a"
                     href={stream.contents[2].link}
@@ -172,8 +174,9 @@ function FarnamSnippets({ stream }) {
                   index={3}
                   onClick={handleClick}
                 >
-                  <Icon name="dropdown" />
+                  <Icon name="dropdown" style={{ display: "inline-block" }} />
                   <List.Header
+                    style={{ display: "inline-block" }}
                     id="fonts"
                     as="a"
                     href={stream.contents[3].link}
@@ -230,7 +233,7 @@ const styles = {
     marginTop: 0,
     width: "100%",
     height: "auto",
-    marginLeft: isMobile ? 0 : 15
+    marginLeft: isMobile ? 0 : 15,
   },
   contents: {
     marginBottom: 6,
@@ -244,6 +247,6 @@ const styles = {
   },
   textColor: {
     color: "#082942",
-    fontSize: 35,
+    fontSize: 30,
   },
 };

@@ -6,7 +6,9 @@ function EventsPlaceholder({ worldEvents }) {
   return (
     <div>
       <div id="fonts" style={styles.subHeader}>
-        Highlights
+        <Placeholder>
+          
+        </Placeholder>
       </div>
       <Card.Group style={styles.eventsBox} centered itemsPerRow={3} stackable>
         {selectedEvents &&

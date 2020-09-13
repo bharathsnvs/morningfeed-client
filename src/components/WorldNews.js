@@ -5,7 +5,6 @@ import { isMobile } from "react-device-detect";
 import EventsContainer from "./EventsContainer";
 
 function WorldNews({ stream, worldEvents }) {
-  
   const indiaSpecific =
     stream && stream.contents.filter((i) => i.location === "top-news");
   const worldSpecific =
@@ -16,24 +15,24 @@ function WorldNews({ stream, worldEvents }) {
         <Container id="fonts" style={styles.informationBox}>
           <EventsContainer worldEvents={worldEvents} />
 
+          <div id="fonts" style={styles.subHeader}>
+            India
+            <span
+              // onClick={() => changeView("misc")}
+
+              style={{
+                marginBottom: 0,
+
+                marginTop: 5,
+                float: "right",
+                color: "gray",
+                fontSize: 22,
+              }}
+            >
+              from: reuters, reddit
+            </span>
+          </div>
           <div style={styles.coloredDiv}>
-            <div id="fonts" style={styles.subHeader}>
-              India
-              <span
-                // onClick={() => changeView("misc")}
-
-                style={{
-                  marginBottom: 0,
-
-                  marginTop: 5,
-                  float: "right",
-                  color: "gray",
-                  fontSize: 22,
-                }}
-              >
-                from: reuters, reddit
-              </span>
-            </div>
             <List divided relaxed ordered>
               {indiaSpecific &&
                 indiaSpecific.slice(0, -2).map((item) => (
@@ -57,10 +56,13 @@ function WorldNews({ stream, worldEvents }) {
                 ))}
             </List>
             <br />
-            <br />
-            <div id="fonts" style={styles.subHeader}>
-              World
-            </div>
+          </div>
+          <br />
+
+          <div id="fonts" style={styles.subHeader}>
+            World
+          </div>
+          <div style={styles.coloredDiv}>
             <List divided relaxed ordered>
               {worldSpecific &&
                 worldSpecific.slice(0, -2).map((item) => (
@@ -84,8 +86,8 @@ function WorldNews({ stream, worldEvents }) {
                 ))}
             </List>
             <br />
-            <br />
           </div>
+          <br />
         </Container>
       ) : null}
     </div>
