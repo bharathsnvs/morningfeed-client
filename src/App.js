@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 import { isMobileOnly } from "react-device-detect";
 import AddToHomeScreen from "./helper/AddToHomeScreen.js";
+import ReactGA from "react-ga";
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
@@ -11,10 +12,17 @@ import "./App.css";
 // import { AuthProvider } from "./context/auth";
 
 import Home from "./pages/Home";
-import Tests from './pages/Tests'
+import Tests from "./pages/Tests";
 
 function App() {
-  console.log('Mobile ? ', isMobileOnly)
+  console.log("Mobile ? ", isMobileOnly);
+
+  useEffect(() => {
+    ReactGA.initialize("UA-177839765-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+
   return (
     <Router>
       <Container style={styles.pagecontainer}>
@@ -25,7 +33,7 @@ function App() {
           style={{
             ...styles.container,
             width: isMobileOnly ? "97%" : "70%",
-            
+
             backgroundColor: "#fff",
           }}
         >
