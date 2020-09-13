@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 import { isMobileOnly } from "react-device-detect";
 import AddToHomeScreen from "./helper/AddToHomeScreen.js";
-import ReactGA from "react-ga";
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
@@ -14,14 +13,21 @@ import "./App.css";
 import Home from "./pages/Home";
 import Tests from "./pages/Tests";
 
+//GA
+import ReactGA from "react-ga";
+ReactGA.initialize("UA-177839765-1");
+const trackPage = (page) => {
+  ReactGA.set({ page });
+  ReactGA.pageview(page);
+};
+
 function App() {
   console.log("Mobile ? ", isMobileOnly);
 
   useEffect(() => {
-    ReactGA.initialize("UA-177839765-1");
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    const page = window.location.pathname;
+    trackPage(page);
   }, []);
-
 
   return (
     <Router>

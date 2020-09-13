@@ -3,6 +3,7 @@ import { Grid, Loader } from "semantic-ui-react";
 import axios from "axios";
 import { isMobileOnly } from "react-device-detect";
 
+import ReactGA from "react-ga";
 
 //Components
 import Intro from "./Intro";
@@ -27,12 +28,17 @@ function PageContent() {
     const result = await axios("https://informationfeed.herokuapp.com/");
     setFeed(JSON.parse(JSON.stringify(result.data)));
     feed && setLoading(false);
-    console.log('Fetching')
+    console.log("Fetching");
   };
   console.log(feed);
 
   function changeView(type) {
     setView(type);
+    ReactGA.event({
+      category: "Category",
+      action: `Changed page to ${type}`,
+      label: "TYPE",
+    });
   }
 
   const Fin = [feed[2], feed[8], feed[9], feed[3]];
@@ -95,7 +101,12 @@ function PageContent() {
         <Grid.Column style={{}}>
           <Grid.Row style={styles.firstRow}>
             <div style={styles.contentContainer}>
-              <Intro changeView={changeView} view={view} fetchData={fetchData} loading={loading}/>
+              <Intro
+                changeView={changeView}
+                view={view}
+                fetchData={fetchData}
+                loading={loading}
+              />
             </div>
           </Grid.Row>
           {!loading ? (
