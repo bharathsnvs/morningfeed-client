@@ -51,11 +51,12 @@ function PageContent() {
   const Reddit = [feed[3], feed[4], feed[5]];
   const Artwork = [feed[11], feed[5]];
   const Misc = [feed[1], feed[4]];
-  const worldEvents = feed[3];
-  console.log(view)
+  const worldEvents = feed[12];
+  console.log(view);
 
   return (
     <div>
+      
       <PageHeader loading={loading} view={view} changeView={changeView} />
       {!loading ? (
         view === "all" ? (
@@ -76,6 +77,31 @@ function PageContent() {
       ) : (
         <EventsPlaceholder />
       )}
+
+      {/* STICKY ADD TO HOME SCREEN */}
+      {/* <div className="sticky top-0 left-0">
+        <div className="flex max-w-sm shadow-md rounded-lg overflow-hidden mx-auto mb-4">
+          <div className="w-2 bg-gray-800"></div>
+          <div className="flex justify-center items-center">
+            <div className="flex p-3 bg-gray-200 rounded-lg justify-center items-center max-w-sm md:max-w-xl lg:max-w-4xl h-auto mx-auto lg:flex">
+              <div>
+                <img
+                  className="w-10 h-10 ml-2 mb-2 md: object-cover rounded-full"
+                  alt="User avatar"
+                  src={require("../assets/fractal1.svg")}
+                />
+
+                <div className="mx-3">
+                  <p className="text-gray-600 font-semibold">
+                    Did you know you can add this page to your home screen?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
       {/* <Grid style={styles.container}>
         <Grid.Column style={{}}>
           <Grid.Row style={styles.firstRow}>
