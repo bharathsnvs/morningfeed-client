@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Header, Input, Icon } from "semantic-ui-react";
 import useEvent from "../hooks/useEvent";
 
 import PageContent from "../components/PageContent";
@@ -31,44 +30,7 @@ function Home() {
 
   return (
     <div>
-      <Modal
-        onClose={() => setOpen(true)}
-        onOpen={() => setOpen(true)}
-        open={open}
-        closeOnDimmerClick={false}
-        style={styles.modal}
-      >
-        <Modal.Header style={styles.modal} id="fonts">
-          Enter pass
-        </Modal.Header>
-        <Modal.Content style={styles.modal}>
-          <Modal.Description>
-            <Header style={styles.modal} id="fonts">
-              Confirm user
-            </Header>
-            <Input
-              icon={
-                <Icon
-                  onClick={() => validateInput(password)}
-                  name="chevron right"
-                  fitted
-                  link
-                  size="small"
-                />
-              }
-              type="password"
-              style={styles.input}
-              transparent
-              placeholder="Enter..."
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <p id="fonts" style={{ marginTop: 50 }}>
-              Contact usalresearchteam@gmail.com for access
-            </p>
-          </Modal.Description>
-        </Modal.Content>
-      </Modal>
+      
 
       <PageContent />
     </div>

@@ -1,16 +1,17 @@
 import React from "react";
-import { Card, Placeholder } from "semantic-ui-react";
 
 function EventsPlaceholder({ worldEvents }) {
   const selectedEvents = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <div>
-      <div id="fonts" style={styles.subHeader}>
-        <Placeholder>
-          
-        </Placeholder>
+      <div className="relative mt-4 lg:mt-10 flex justify-center items-center h-auto">
+        <div className="inline-block rounded-full animate-bounce ease duration-300 w-3 h-3 bg-gray-600 mx-2"></div>
+
+        <div className="inline-block rounded-full animate-ping ease duration-300 w-3 h-3 bg-gray-600 mx-2"></div>
+        <div className="inline-block rounded-full animate-ping ease duration-300 w-3 h-3 bg-gray-600 mx-2"></div>
+        <div className="inline-block rounded-full animate-bounce ease duration-300 w-3 h-3 bg-gray-600 mx-2"></div>
       </div>
-      <Card.Group style={styles.eventsBox} centered itemsPerRow={3} stackable>
+      {/* <Card.Group style={styles.eventsBox} centered itemsPerRow={3} stackable>
         {selectedEvents &&
           selectedEvents.map((item, key) => (
             <Card key={item} style={{ height: 150 }}>
@@ -30,7 +31,7 @@ function EventsPlaceholder({ worldEvents }) {
               </Card.Content>
             </Card>
           ))}
-      </Card.Group>
+      </Card.Group> */}
     </div>
   );
 }

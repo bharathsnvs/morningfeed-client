@@ -1,5 +1,5 @@
 import React from "react";
-import { Label, Icon, Loader } from "semantic-ui-react";
+
 
 function Intro({ changeView, view, fetchData, loading }) {
   return (
@@ -52,7 +52,7 @@ function Intro({ changeView, view, fetchData, loading }) {
           ) : null}
         </div>
       </div>
-      <Label
+      {/* <Label
         size="large"
         as="a"
         onClick={() => changeView("news")}
@@ -61,8 +61,8 @@ function Intro({ changeView, view, fetchData, loading }) {
       >
         <img src="https://store-images.s-microsoft.com/image/apps.47747.9007199266536044.863230ca-de90-40a3-b269-d14b7d44970d.12b809a9-4120-4a07-9fd3-71fc318a4657" />
         #news
-      </Label>
-      <Label
+      </Label> */}
+      {/* <Label
         size="large"
         as="a"
         onClick={() => changeView("tech")}
@@ -102,7 +102,7 @@ function Intro({ changeView, view, fetchData, loading }) {
       >
         <img src="https://ocbj.media.clients.ellingtoncms.com/img/debates/pundit/2020/05/21/Munger_Charlie_r300x300.jpg?1e170c4591cc8fc122271144bf15389278832808" />
         #farnam
-      </Label>
+      </Label> */}
       {/* <Label
         size="large"
         as="a"
@@ -113,7 +113,7 @@ function Intro({ changeView, view, fetchData, loading }) {
         <img src="https://mk0egoveletsonla87wv.kinstacdn.com/wp-content/uploads/2016/08/Agri-App.png" />
         #agri
       </Label> */}
-      <Label
+      {/* <Label
         size="large"
         as="a"
         onClick={() => changeView("misc")}
@@ -122,7 +122,7 @@ function Intro({ changeView, view, fetchData, loading }) {
       >
         <img src="https://i.insider.com/5f3fe11189aff80028ab71ff?width=750&format=jpeg&auto=webp" />
         #misc
-      </Label>
+      </Label> */}
       {/* <Label
         size="large"
         as="a"

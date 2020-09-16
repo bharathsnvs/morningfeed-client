@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Container } from "semantic-ui-react";
-import { isMobileOnly } from "react-device-detect";
-import AddToHomeScreen from "./helper/AddToHomeScreen.js";
 
-import "semantic-ui-css/semantic.min.css";
+import AddToHomeScreen from "./helper/AddToHomeScreen.js";
 import "./App.css";
 
 // Context Provider
@@ -12,6 +9,7 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import Tests from "./pages/Tests";
+import PageContent from "./components/PageContent";
 
 //GA
 import ReactGA from "react-ga";
@@ -22,8 +20,6 @@ const trackPage = (page) => {
 };
 
 function App() {
-  console.log("Mobile ? ", isMobileOnly);
-
   useEffect(() => {
     const page = window.location.pathname;
     trackPage(page);
@@ -31,22 +27,17 @@ function App() {
 
   return (
     <Router>
-      <Container style={styles.pagecontainer}>
+      <div style={styles.pagecontainer}>
         <AddToHomeScreen />
-
         <div style={styles.pageBackground}></div>
-        <Container
-          style={{
-            ...styles.container,
-            width: isMobileOnly ? "97%" : "70%",
+        <div className="max-w-sm md:max-w-xl lg:max-w-4xl h-auto mx-auto lg:flex py-10">
+          <Route exact path="/" component={PageContent} />
+        </div>
 
-            backgroundColor: "#fff",
-          }}
-        >
-          <Route exact path="/" component={Home} />
-          {/* <Route exact path="/tests" component={Tests} /> */}
-        </Container>
-      </Container>
+        
+
+        {/* <Route exact path="/tests" component={Tests} /> */}
+      </div>
     </Router>
   );
 }
@@ -64,7 +55,7 @@ const styles = {
   pageBackground: {
     width: "100%",
     height: "260px",
-    borderRadius: 4,
+    borderRadius: 0,
     backgroundPosition: "center",
     backgroundImage:
       "url(" + "https://source.unsplash.com/collection/11413845/" + ")",

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Loader } from "semantic-ui-react";
 import axios from "axios";
-import { isMobileOnly } from "react-device-detect";
 
 import ReactGA from "react-ga";
 
 //Components
+import GridEvents from "./materials/GridEvents";
+import PageHeader from "./materials/PageHeader";
+
 import Intro from "./Intro";
 import WorldNews from "./WorldNews";
 import FinNews from "./FinNews";
@@ -15,6 +16,7 @@ import FarnamSnippets from "./FarnamSnippets";
 import ArtDisplay from "./ArtDisplay";
 import MiscDisplay from "./MiscDisplay";
 import EventsPlaceholder from "./EventsPlaceholder";
+import EventsContainer from "./EventsContainer";
 
 function PageContent() {
   const [feed, setFeed] = useState([]);
@@ -50,54 +52,31 @@ function PageContent() {
   const Artwork = [feed[11], feed[5]];
   const Misc = [feed[1], feed[4]];
   const worldEvents = feed[3];
-
-  const fullView = () => {
-    return (
-      <div>
-        <Grid.Row style={styles.contentRow}>
-          <div style={styles.contentContainer}>
-            <WorldNews stream={ReutersNews} />
-          </div>
-        </Grid.Row>
-        <br />
-        <Grid.Row style={styles.contentRow}>
-          <div style={styles.contentContainer}>
-            <TechNews stream={Tech} />
-          </div>
-        </Grid.Row>
-        <br />
-
-        <Grid.Row style={styles.contentRow}>
-          <div style={styles.contentContainer}>
-            <FinNews stream={Fin} />
-          </div>
-        </Grid.Row>
-
-        <br />
-        <Grid.Row style={styles.contentRow}>
-          Reddit pics / blast from the past
-        </Grid.Row>
-        <br />
-        <Grid.Row style={styles.contentRow}>
-          <div style={styles.contentContainer}>
-            <HubskiNews stream={Hubski} />
-          </div>
-        </Grid.Row>
-        <br />
-        <Grid.Row style={styles.contentRow}>
-          <div style={styles.contentContainer}>
-            <FarnamSnippets stream={Farnam} />
-          </div>
-        </Grid.Row>
-        <br />
-        <Grid.Row style={styles.contentRow}></Grid.Row>
-      </div>
-    );
-  };
+  console.log(view)
 
   return (
     <div>
-      <Grid style={styles.container}>
+      <PageHeader loading={loading} view={view} changeView={changeView} />
+      {!loading ? (
+        view === "all" ? (
+          <WorldNews />
+        ) : view === "news" ? (
+          <WorldNews stream={ReutersNews} worldEvents={worldEvents} />
+        ) : view === "finance" ? (
+          <FinNews stream={Fin} />
+        ) : view === "tech" ? (
+          <TechNews stream={Tech} />
+        ) : view === "art" ? (
+          <ArtDisplay stream={Artwork} />
+        ) : view === "farnam" ? (
+          <FarnamSnippets stream={Farnam} />
+        ) : view === "misc" ? (
+          <MiscDisplay stream={Misc} />
+        ) : null
+      ) : (
+        <EventsPlaceholder />
+      )}
+      {/* <Grid style={styles.container}>
         <Grid.Column style={{}}>
           <Grid.Row style={styles.firstRow}>
             <div style={styles.contentContainer}>
@@ -129,7 +108,7 @@ function PageContent() {
             <EventsPlaceholder />
           )}
         </Grid.Column>
-      </Grid>
+      </Grid> */}
     </div>
   );
 }
@@ -138,7 +117,7 @@ const styles = {
   container: {
     // borderStyle: "solid",
     // borderColor: "lightgray",
-    margin: isMobileOnly ? 0 : "auto",
+    margin: 5,
     borderRadius: 5,
   },
   firstRow: {
