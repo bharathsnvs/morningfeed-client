@@ -28,7 +28,7 @@ function App() {
   return (
     <Router>
       <div style={styles.pagecontainer}>
-        <AddToHomeScreen />
+        {/* <AddToHomeScreen /> */}
         <div style={styles.pageBackground}></div>
         <div className="max-w-sm md:max-w-xl lg:max-w-4xl h-auto mx-auto lg:flex py-10">
           <Route exact path="/" component={PageContent} />
