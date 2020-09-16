@@ -24,11 +24,10 @@ function ShareBox({ openShares, linkToRoute, articleTitle, colorScheme }) {
                 <div className="mx-3">
                   <p
                     className={
-                      colorScheme === "dark" ? "text-gray-100" : "text-gray-600"
+                      colorScheme === "dark" ? "text-gray-100" : "text-gray-600 font-semibold"
                     }
                   >
-                    Show your friends what{" "}
-                    <span className="text-gray-800">you found here —></span>.
+                    Show your friends what you found here —>
                   </p>
                 </div>
               </div>
