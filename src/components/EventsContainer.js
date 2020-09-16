@@ -46,7 +46,7 @@ function EventsContainer({ worldEvents }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
           {eventsfeed &&
             eventsfeed.map((i) => (
-              <div className="border shadow-lg rounded-md w-full lg:h-40 lg:max-w-4xl  mx-auto p-4 ">
+              <div className="border shadow-lg rounded-md w-full lg:h-50 lg:max-w-4xl  mx-auto p-4 ">
                 {!open ? (
                   <div>
                     <div
@@ -60,7 +60,7 @@ function EventsContainer({ worldEvents }) {
                     <a href={i.link} target="_blank">
                       <p
                         id="fonts"
-                        className="lg:relative hover-trigger text-xl font-bold lg:text-lg text-gray-900"
+                        className="lg:relative hover-trigger lg:mb-3 text-xl font-bold lg:text-lg text-gray-900"
                       >
                         {reduceText(i.title)}
                         {/* <div className="hidden lg:absolute hover-target bg-black border border-grey-100 rounded-md  px-4 py-2">
@@ -78,7 +78,7 @@ function EventsContainer({ worldEvents }) {
                         })
                       }
                       id="fonts"
-                      className="text-lg font-semibold lg:text-lg text-gray-600 mt-4 cursor-pointer"
+                      className="text-lg font-semibold lg:text-md text-gray-600 -mb-2 cursor-pointer"
                     >
                       Read summary
                     </div>
