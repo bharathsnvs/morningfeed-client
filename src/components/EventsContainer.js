@@ -22,7 +22,7 @@ function EventsContainer({ worldEvents }) {
   return (
     <div>
       <div className="flex justify-center mb-6 mt-6">
-        <div id="fonts" className="text-gray-500 text-lg font-light">Latest Events</div>
+        <div id="fonts" className="text-gray-500 text-lg font-semibold">Latest Events</div>
       </div>
       <div className="max-w-sm md:max-w-xl lg:max-w-4xl h-auto mx-auto lg:flex mt-5 py-0 mb-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">

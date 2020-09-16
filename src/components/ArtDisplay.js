@@ -53,7 +53,10 @@ function ArtDisplay({ stream }) {
                   </span>
                 </div>
                 <a href={i.imageUrl} target="_blank">
-                  <div id="fonts" className="px-4 md:px-5 pb-4 font-bold text-xl mb-2">
+                  <div
+                    id="fonts"
+                    className="px-4 md:px-5 pb-4 font-bold text-xl mb-2"
+                  >
                     {i.title}
                   </div>
                 </a>
@@ -68,6 +71,11 @@ function ArtDisplay({ stream }) {
               </div>
             </div>
           ))}
+      </div>
+      <div className="flex justify-center text-center mb-6 mt-10">
+        <div id="fonts" className="text-gray-600 text-lg font-light">
+          --- It's probably time to get back to work! --
+        </div>
       </div>
 
       {/* <Item.Group size="large" relaxed>
