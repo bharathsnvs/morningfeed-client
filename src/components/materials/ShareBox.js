@@ -10,7 +10,7 @@ function ShareBox({ openShares, linkToRoute, articleTitle, colorScheme }) {
   return (
     <div>
       {openShares ? (
-        <div className="flex max-w-sm w-auto shadow-md rounded-lg overflow-hidden mx-auto mb-4">
+        <div className="flex max-w-sm shadow-md rounded-lg overflow-hidden mx-auto mb-4">
           <div className="w-2 bg-gray-800"></div>
           <div className="flex justify-center items-center">
             <div className="flex p-3 bg-gray-200 rounded-lg justify-center items-center max-w-sm md:max-w-xl lg:max-w-4xl h-auto mx-auto lg:flex">
