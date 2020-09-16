@@ -25,14 +25,14 @@ function MiscDisplay({ stream }) {
             ></div>
           </div>
           <div className="max-w-sm md:max-w-xl lg:max-w-4xl h-auto mx-auto lg:flex mt-5 py-0 mb-0">
-            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-1 lg:gap-0">
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-0">
               {selected &&
                 selected.map((i) => (
                   <a href={i.link} target="_blank">
                     <div className="max-w-sm lg:max-w-4xl h-auto mx-auto py-0 lg:flex md:mb-0 md:pb-0">
                       <div className="bg-white border md:border-none p-4 md:mb-0 md:pb-0 border-gray-400 rounded-md flex">
-                        <div className="mb-0 justify-start">
-                          <p className="text-xs text-gray-600 flex items-center mb-3 lg:mb-5">
+                        <div className="mb-2 justify-start">
+                          <p className="text-xs text-gray-600 flex items-center mb-2 lg:mb-2">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 20 20"
@@ -43,7 +43,14 @@ function MiscDisplay({ stream }) {
                             </svg>
                             Riveting
                           </p>
-
+                          <div className="items-start pt-0 pb-0 mb-0">
+                            <span
+                              id="fonts"
+                              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                            >
+                              #{!i.upvoteRatio ? i.category : "info"}
+                            </span>
+                          </div>
                           <div className="text-gray-900 font-bold text-md mb-0 text-left">
                             {i.upvoteRatio
                               ? i.title
@@ -59,14 +66,6 @@ function MiscDisplay({ stream }) {
                           {/* <p className="text-gray-700 text-base text-md text-left md:mb-0 md:pb-0">
                             {i.excerpt}
                           </p> */}
-                          <div className="items-start pt-4 pb-0 mb-0">
-                            <span
-                              id="fonts"
-                              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                            >
-                              #{!i.upvoteRatio ? i.category : "info"}
-                            </span>
-                          </div>
                         </div>
                       </div>
                     </div>
