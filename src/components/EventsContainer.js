@@ -78,9 +78,9 @@ function EventsContainer({ worldEvents }) {
                         })
                       }
                       id="fonts"
-                      className="text-lg font-light lg:text-lg text-gray-600 mt-4 cursor-pointer"
+                      className="text-lg font-semibold lg:text-lg text-gray-600 mt-4 cursor-pointer"
                     >
-                      Read more
+                      Read summary
                     </div>
                   </div>
                 ) : null}
@@ -120,13 +120,15 @@ function EventsContainer({ worldEvents }) {
                         </p>
 
                         <div className="flex justify-end pt-2">
-                          <div
+                          <a
                             id="fonts"
-                            onClick={() => handleCloseModal()}
+                            alt="to Source"
+                            href={modalText.link}
+                            target="_blank"
                             className="px-3 p-3 text-gray-600 font-semibold cursor-pointer"
                           >
                             Read full
-                          </div>
+                          </a>
                           <div
                             id="fonts"
                             onClick={() => handleCloseModal()}
