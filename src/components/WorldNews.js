@@ -228,8 +228,9 @@ function WorldNews({ stream, worldEvents }) {
     <div>
       {worldEvents && stream ? (
         <div>
-          <EventsContainer worldEvents={worldEvents} />
-          <div className="border-b w-full mt-10 rounded-md"></div>
+        {/* TO FIX EVENTS FEED */}
+          {/* <EventsContainer worldEvents={worldEvents} /> */}
+          {/* <div className="border-b w-full mt-10 rounded-md"></div> */}
           <div>
             {/* <div className="relative">
               <button
